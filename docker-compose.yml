@@ -20,8 +20,6 @@ services:
         # у нас свой образ для PHP, указываем путь к нему и говорим что его надо собрать
         build: ./docker/images/php
         # монтируем директорию с проектами
-        expose:
-          - "2375"
         volumes:
             - ./:/usr/share/nginx/mitra-shop.loc
     mysql:
@@ -37,4 +35,4 @@ services:
         # задаем пароль для root пользователя
         environment:
             MARIADB_ROOT_PASSWORD: root
-            MARIADB_DATABASE: sait
+            MARIADB_DATABASE: mitra-shop
