@@ -13,15 +13,9 @@ class TestController extends AbstractController
      */
     public function index(): Response
     {
-        $conn = $this->getDoctrine()->getConnection();
 
-        $sql = '
-            SELECT * FROM user';
 
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
 
-        // возвращает массив массивов (т.e. сырой набор данных)
 
 
         return $this->render('test/index.html.twig', [
