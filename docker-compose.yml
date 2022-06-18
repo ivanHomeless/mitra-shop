@@ -3,6 +3,7 @@ version: '3'
 # Список наших сервисов (контейнеров)
 services:
     nginx:
+        container_name: nginx
         # используем последний стабильный образ nginx
         build: ./docker/images/nginx
         # маршрутизируем порты
@@ -17,6 +18,7 @@ services:
         links:
             - php
     php:
+        container_name: php
         # у нас свой образ для PHP, указываем путь к нему и говорим что его надо собрать
         build: ./docker/images/php
         # монтируем директорию с проектами
@@ -24,6 +26,7 @@ services:
             - ./:/usr/share/nginx/mitra-shop.loc
     mysql:
         build: ./docker/images/mysql
+        container_name: mysql
         ports:
             - "3306:3306"
         volumes:
