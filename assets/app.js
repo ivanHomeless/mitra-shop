@@ -6,10 +6,19 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.scss';
+
 
 // start the Stimulus application
 //import './bootstrap';
 
+import 'admin-lte/build/npm/Plugins'
+import 'admin-lte/build/npm/DocsPlugins'
+
+import 'admin-lte/build/scss/adminlte.scss'
+import 'admin-lte/build/js/AdminLTE'
+
+import './styles/app.scss'
+
+import './js/pages/dashboard'
 import './js/script'
 
