@@ -1,4 +1,5 @@
 const Encore = require('@symfony/webpack-encore');
+const path = require('path');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -35,12 +36,17 @@ Encore
     // will require an extra script tag for runtime.js
     // but, you probably want this, unless you're building a single-page app
     .enableSingleRuntimeChunk()
-
+    .autoProvidejQuery()
     .autoProvideVariables({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
+        moment: 'moment',
+        'window.moment': 'moment',
+         $: 'jquery',
+         jQuery: 'jquery',
+         'window.jQuery': 'jquery',
+         'window.$': 'jquery',
+
     })
+
     /*
      * FEATURE CONFIG
      *
@@ -80,5 +86,5 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
 ;
-
+Encore.addAliases({ jQuery: path.resolve(__dirname, "node_modules/jquery"), });
 module.exports = Encore.getWebpackConfig();

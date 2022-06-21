@@ -11,14 +11,26 @@
 // start the Stimulus application
 //import './bootstrap';
 
-import 'admin-lte/build/npm/Plugins'
-import 'admin-lte/build/npm/DocsPlugins'
+const $ = require('jquery');
+global.$ = global.jQuery = $;
 
-import 'admin-lte/build/scss/adminlte.scss'
-import 'admin-lte/build/js/AdminLTE'
+import './plugins/jquery-ui/jquery-ui'
+window.$.widget.bridge('uibutton', window.$.ui.button)
+import './plugins/bootstrap/js/bootstrap.bundle'
+import './plugins/chart.js/Chart'
+import './plugins/jquery-knob/jquery.knob.min'
 
+import './plugins/jqvmap/jquery.vmap'
+import './plugins/jqvmap/maps/jquery.vmap.usa'
+
+import './plugins/summernote/summernote-bs4'
+import './plugins/overlayScrollbars/js/jquery.overlayScrollbars'
+import './plugins/daterangepicker/daterangepicker'
+import './plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4'
+import './plugins/adminlte/js/adminlte'
+
+import './js/dashboard'
 import './styles/app.scss'
-
-import './js/pages/dashboard'
 import './js/script'
+
 
