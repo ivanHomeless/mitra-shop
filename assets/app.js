@@ -14,19 +14,19 @@
 const $ = require('jquery');
 global.$ = global.jQuery = $;
 
-import './plugins/jquery-ui/jquery-ui'
+import 'jquery-ui-bundle/jquery-ui'
 window.$.widget.bridge('uibutton', window.$.ui.button)
-import './plugins/bootstrap/js/bootstrap.bundle'
-import './plugins/chart.js/Chart'
-import './plugins/jquery-knob/jquery.knob.min'
 
+import 'bootstrap/dist/js/bootstrap.bundle'
+import 'jquery-knob/dist/jquery.knob.min'
+import 'summernote/dist/summernote-bs4'
+import 'overlayscrollbars/js/jquery.overlayScrollbars'
+import 'daterangepicker'
+import 'tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4'
+
+import './plugins/chart.js/Chart'
 import './plugins/jqvmap/jquery.vmap'
 import './plugins/jqvmap/maps/jquery.vmap.usa'
-
-import './plugins/summernote/summernote-bs4'
-import './plugins/overlayScrollbars/js/jquery.overlayScrollbars'
-import './plugins/daterangepicker/daterangepicker'
-import './plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4'
 import './plugins/adminlte/js/adminlte'
 
 import './js/dashboard'
