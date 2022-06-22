@@ -1,0 +1,31 @@
+{% extends 'layout/base.html.twig' %}
+
+
+{% block title %} {% trans %}register.title{% endtrans %}{% endblock %}
+
+{% block style %}
+    <style>
+        .card-body {
+            padding: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">{% trans %}register.title {% endtrans %}</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <!-- form start -->
+            {{ form_start(registrationForm) }}
+            {{ form_widget(registrationForm) }}
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}
