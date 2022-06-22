@@ -27,7 +27,15 @@
       </trans-unit>
       <trans-unit id="qmpYFJN2" resname="register.submit">
         <source>Submit</source>
-        <target>Регистрация</target>
+        <target>Отправить</target>
+      </trans-unit>
+      <trans-unit id="qmpYdFJN2" resname="auth.login">
+        <source>Login</source>
+        <target>Вход</target>
+      </trans-unit>
+      <trans-unit id="q4mpYdFJN2" resname="auth.remember_me">
+        <source>Remember me</source>
+        <target>Запомнить меня</target>
       </trans-unit>
     </body>
   </file>

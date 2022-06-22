@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Account;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
@@ -27,6 +27,10 @@ class RegistrationController extends AbstractController
 
     /**
      * @Route("/register", name="app_register")
+     * @param  Request  $request
+     * @param  UserPasswordEncoderInterface  $userPasswordEncoder
+     * @param  EntityManagerInterface  $entityManager
+     * @return Response
      */
     public function register(Request $request, UserPasswordEncoderInterface $userPasswordEncoder, EntityManagerInterface $entityManager): Response
     {
@@ -52,20 +56,23 @@ class RegistrationController extends AbstractController
                     ->from(new Address('double0fork@gmail.com', 'Mail Bot'))
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
-                    ->htmlTemplate('registration/confirmation_email.html.twig')
+                    ->htmlTemplate('account/registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
 
             return $this->redirectToRoute('_profiler');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('account/registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
 
     /**
      * @Route("/verify/email", name="app_verify_email")
+     * @param  Request  $request
+     * @param  TranslatorInterface  $translator
+     * @return Response
      */
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {

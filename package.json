@@ -23,7 +23,9 @@
         "sparkline": "^0.2.0",
         "summernote": "^0.8.20",
         "tempusdominus-bootstrap-4": "^5.39.2",
-        "webpack-notifier": "^1.6.0"
+        "webpack-notifier": "^1.6.0",
+        "fontawesome-free": "^1.0.4",
+        "icheck-bootstrap": "^3.0.1"
     },
     "license": "UNLICENSED",
     "private": true,
@@ -32,9 +34,5 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
-    },
-    "dependencies": {
-        "fontawesome-free": "^1.0.4",
-        "icheck-bootstrap": "^3.0.1"
     }
 }
