@@ -9,7 +9,7 @@
         <source>Register</source>
         <target>Регистрация</target>
       </trans-unit>
-      <trans-unit id="a340aSQ" resname="register.name">
+      <trans-unit id="a340aSQ" resname="name">
         <source>Name</source>
         <target>Имя</target>
       </trans-unit>
@@ -36,6 +36,10 @@
       <trans-unit id="q4mpYdFJN2" resname="auth.remember_me">
         <source>Remember me</source>
         <target>Запомнить меня</target>
+      </trans-unit>
+      <trans-unit id="qmpYFJN3" resname="user.profile">
+        <source>user.profile</source>
+        <target>Профиль пользователя</target>
       </trans-unit>
     </body>
   </file>
