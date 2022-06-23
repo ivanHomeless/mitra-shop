@@ -6,16 +6,21 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use DateTimeInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User implements UserInterface
 {
     public const ROLE_USER = 'ROLE_USER';
+
+    public const STATUS_NEW = 1;
 
     /**
      * @ORM\Id
@@ -78,6 +83,11 @@ class User implements UserInterface
      * @ORM\JoinTable(name="user_to_shop")
      */
     private ?Collection $shops;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private bool $isVerified = false;
 
     public function __construct()
     {
@@ -316,5 +326,41 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function setStatusBeforeSave()
+    {
+        $this->setStatus(static::STATUS_NEW);
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function setCreatedAtBeforeSave()
+    {
+        $this->setCreateAt(new \DateTime());
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function setUpdatedAtBeforeSave()
+    {
+        $this->setUpdateAt(new \DateTime());
     }
 }

@@ -24,8 +24,8 @@ class ShopRepository extends ServiceEntityRepository
     }
 
     /**
-     * @throws ORMException
-     * @throws OptimisticLockException
+     * @param  Shop  $entity
+     * @param  bool  $flush
      */
     public function add(Shop $entity, bool $flush = true): void
     {
@@ -36,8 +36,8 @@ class ShopRepository extends ServiceEntityRepository
     }
 
     /**
-     * @throws ORMException
-     * @throws OptimisticLockException
+     * @param  Shop  $entity
+     * @param  bool  $flush
      */
     public function remove(Shop $entity, bool $flush = true): void
     {

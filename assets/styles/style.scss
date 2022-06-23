@@ -1,6 +1,11 @@
 .site-layout {
   .main-header,
-  .content-wrapper {
+  .content-wrapper,
+  .main-footer {
     margin-left: 0!important;
   }
+}
+.login-form {
+  max-width: 500px;
+  margin: 50px auto;
 }

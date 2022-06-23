@@ -1,0 +1,59 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+        <div class="card login-form card-primary">
+            <div class="card-header">
+                <h3 class="card-title">{% trans %}auth.login{% endtrans %}</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+
+            <div class="card-body">
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">{% trans %} email {% endtrans %}</label>
+                    <div class="col-sm-10">
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="{% trans %} email {% endtrans %}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">{% trans %}password{% endtrans %}</label>
+                    <div class="col-sm-10">
+                        <input type="password" id="inputPassword" class="form-control" name="password" autocomplete="current-password" required placeholder="{% trans %}password{% endtrans %}">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                        <div class="form-check">
+                            <input type="checkbox" name="_remember_me" class="form-check-input" id="exampleCheck">
+                            <label class="form-check-label" for="exampleCheck">{% trans %}auth.remember_me{% endtrans %}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <button type="submit" class="btn btn-info">{% trans %}auth.login{% endtrans %}</button>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            </div>
+            <!-- /.card-footer -->
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
