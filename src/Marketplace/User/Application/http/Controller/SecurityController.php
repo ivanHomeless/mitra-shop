@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller\Account;
+namespace App\Marketplace\User\Application\http\Controller;
 
-use App\Security\AppAuthenticator;
+use App\Marketplace\User\Application\http\Services\Security\AppAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

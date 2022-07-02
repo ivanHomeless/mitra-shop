@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Account;
+namespace App\Marketplace\Shop\Application\http\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

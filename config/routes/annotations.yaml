@@ -1,5 +1,9 @@
-controllers:
-    resource: ../../src/Controller/
+controllersUser:
+    resource: ../../src/Marketplace/User/Application/http/Controller/
+    type: annotation
+
+controllersShop:
+    resource: ../../src/Marketplace/Shop/Application/http/Controller/
     type: annotation
 
 kernel:

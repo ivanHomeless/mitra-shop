@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Marketplace\User\Domain\Entity;
 
 use App\Repository\AddressRepository;
 use Doctrine\Common\Collections\ArrayCollection;

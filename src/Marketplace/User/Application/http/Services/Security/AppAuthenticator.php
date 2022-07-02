@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Security;
+namespace App\Marketplace\User\Application\http\Services\Security;
 
-use App\Entity\User;
+use App\Marketplace\User\Domain\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

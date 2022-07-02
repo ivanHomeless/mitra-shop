@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Marketplace\User\Domain\Entity;
 
-use App\Repository\UserRepository;
+use App\Marketplace\User\Infrastructure\Repository\UserRepository;
+use App\Marketplace\Shop\Domain\Entity\Shop;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;

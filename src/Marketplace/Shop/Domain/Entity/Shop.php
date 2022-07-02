@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Marketplace\Shop\Domain\Entity;
 
+use App\Marketplace\User\Domain\Entity\User;
 use App\Repository\ShopRepository;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
