@@ -97,12 +97,12 @@ class Shop
         return $this;
     }
 
-    public function getUpdatedt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedt;
     }
 
-    public function setUpdatedt(\DateTimeInterface $updatedt): self
+    public function setUpdatedAt(\DateTimeInterface $updatedt): self
     {
         $this->updatedt = $updatedt;
 
