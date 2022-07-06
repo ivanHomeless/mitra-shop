@@ -7,46 +7,20 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=AddressRepository::class)
- */
 class Address
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private ?int $id;
+    private int $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private ?string $city;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private ?string $street;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private ?string $house;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
     private ?string $postal_code;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private ?string $phone;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="addresses")
-     */
     private ?Collection $user;
 
     public function __construct()

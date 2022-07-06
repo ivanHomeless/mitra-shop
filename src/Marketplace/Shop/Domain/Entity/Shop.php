@@ -39,7 +39,7 @@ class Shop
     /**
      * @ORM\Column(type="datetime")
      */
-    private ?\DateTimeInterface $updateAt;
+    private ?\DateTimeInterface $updatedAt;
 
     /**
      * @ORM\Column(type="datetime")
@@ -99,12 +99,12 @@ class Shop
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->updatedt;
+        return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedt): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
-        $this->updatedt = $updatedt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

@@ -11,78 +11,33 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use DateTimeInterface;
 
-/**
- * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\Table(name="`user`")
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
- * @ORM\HasLifecycleCallbacks()
- */
+
 class User implements UserInterface
 {
     public const ROLE_USER = 'ROLE_USER';
 
     public const STATUS_NEW = 1;
 
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private ?int $id;
+    private int $id;
 
-    /**
-     * @ORM\Column(type="string", nullable=false)
-     */
-    private ?string $name;
+    private string $name;
 
-    /**
-     * @ORM\Column(type="string", length=180, unique=true, nullable=false)
-     */
-    private ?string $email;
+    private string $email;
 
-    /**
-     * @ORM\Column(type="json")
-     */
     private ?array $roles = [];
 
-    /**
-     * @var string The hashed password
-     * @ORM\Column(type="string")
-     */
-    private ?string $password;
+    private string $password;
 
-    /**
-     * @ORM\Column(type="string", nullable=false)
-     */
-    private ?string $phone;
+    private string $phone;
 
-    /**
-     * @ORM\Column(type="integer", nullable=false)
-     */
-    private ?string $status;
+    private string $status;
 
-    /**
-     * @var DateTimeInterface
-     * @ORM\Column(type="datetime")
-     */
-    private ?DateTimeInterface $updateAt;
+    private DateTimeInterface $updatedAt;
 
-    /**
-     * @var DateTimeInterface
-     * @ORM\Column(type="datetime")
-     */
-    private ?DateTimeInterface $createAt;
+    private ?DateTimeInterface $createdAt;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Address::class, inversedBy="user")
-     * @ORM\JoinTable(name="user_to_address")
-     */
     private ?Collection $addresses;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Shop::class, inversedBy="user")
-     * @ORM\JoinTable(name="user_to_shop")
-     */
     private ?Collection $shops;
 
     /**
@@ -158,17 +113,17 @@ class User implements UserInterface
     /**
      * @return DateTimeInterface
      */
-    public function getUpdateAt(): DateTimeInterface
+    public function getUpdatedAt(): DateTimeInterface
     {
-        return $this->updateAt;
+        return $this->updatedAt;
     }
 
     /**
-     * @param  DateTimeInterface  $updateAt
+     * @param  DateTimeInterface  $updatedAt
      */
-    public function setUpdateAt(DateTimeInterface $updateAt): self
+    public function setUpdateAt(DateTimeInterface $updatedAt): self
     {
-        $this->updateAt = $updateAt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -176,17 +131,17 @@ class User implements UserInterface
     /**
      * @return DateTimeInterface
      */
-    public function getCreateAt(): DateTimeInterface
+    public function getCreatedAt(): DateTimeInterface
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
     /**
-     * @param  DateTimeInterface  $createAt
+     * @param  DateTimeInterface  $createdAt
      */
-    public function setCreateAt(DateTimeInterface $createAt): self
+    public function setCreateAt(DateTimeInterface $createdAt): self
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

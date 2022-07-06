@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\Marketplace\Shop\Infrastructure\Repository;
 
-use App\Entity\Shop;
+use App\Marketplace\Shop\Domain\Entity\Shop;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
