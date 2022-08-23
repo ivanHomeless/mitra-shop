@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="App\Blog\User\Domain\Entity\User" table="user" repository-class="App\Blog\User\Infrastructure\Repository\UserRepository">
+    <entity name="App\Marketplace\User\Domain\Entity\User" table="user" repository-class="App\Marketplace\User\Infrastructure\Repository\UserRepository">
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
@@ -20,7 +20,7 @@
         <many-to-many field="addresses" target-entity="App\Marketplace\User\Domain\Entity\Address" inversed-by="user">
             <join-table name="user_to_address"/>
         </many-to-many>
-        <many-to-many field="shops" target-entity="App\Blog\Shop\Domain\Entity" mapped-by="user">
+        <many-to-many field="shops" target-entity="App\Marketplace\Shop\Domain\Entity" mapped-by="user">
             <join-table name="user_to_shop" />
         </many-to-many>
     </entity>

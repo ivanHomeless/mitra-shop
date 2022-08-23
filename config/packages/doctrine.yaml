@@ -11,7 +11,7 @@ doctrine:
         auto_mapping: true
         mappings:
             User:
-                type: annotation
+                type: xml
                 is_bundle: false
                 dir: '%kernel.project_dir%/src/Marketplace/User/Infrastructure/DoctrineMapping'
                 prefix: 'App\Marketplace\User\Domain\Entity'

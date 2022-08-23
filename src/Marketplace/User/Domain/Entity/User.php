@@ -12,32 +12,79 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use DateTimeInterface;
 
 
+
+/**
+ * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\Table(name="user")
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @ORM\HasLifecycleCallbacks()
+ */
 class User implements UserInterface
 {
     public const ROLE_USER = 'ROLE_USER';
 
     public const STATUS_NEW = 1;
 
-    private int $id;
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private ?int $id;
 
-    private string $name;
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     */
+    private ?string $name;
 
-    private string $email;
+    /**
+     * @ORM\Column(type="string", length=180, unique=true, nullable=false)
+     */
+    private ?string $email;
 
+    /**
+     * @ORM\Column(type="json")
+     */
     private ?array $roles = [];
 
-    private string $password;
+    /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     */
+    private ?string $password;
 
-    private string $phone;
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     */
+    private ?string $phone;
 
-    private string $status;
+    /**
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    private ?string $status;
 
-    private DateTimeInterface $updatedAt;
+    /**
+     * @var DateTimeInterface
+     * @ORM\Column(type="datetime")
+     */
+    private ?DateTimeInterface $updateAt;
 
-    private ?DateTimeInterface $createdAt;
+    /**
+     * @var DateTimeInterface
+     * @ORM\Column(type="datetime")
+     */
+    private ?DateTimeInterface $createAt;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Address::class, inversedBy="user")
+     * @ORM\JoinTable(name="user_to_address")
+     */
     private ?Collection $addresses;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Shop::class, inversedBy="user")
+     * @ORM\JoinTable(name="user_to_shop")
+     */
     private ?Collection $shops;
 
     /**
@@ -113,17 +160,17 @@ class User implements UserInterface
     /**
      * @return DateTimeInterface
      */
-    public function getUpdatedAt(): DateTimeInterface
+    public function getUpdateAt(): DateTimeInterface
     {
-        return $this->updatedAt;
+        return $this->updateAt;
     }
 
     /**
-     * @param  DateTimeInterface  $updatedAt
+     * @param  DateTimeInterface  $updateAt
      */
-    public function setUpdateAt(DateTimeInterface $updatedAt): self
+    public function setUpdateAt(DateTimeInterface $updateAt): self
     {
-        $this->updatedAt = $updatedAt;
+        $this->updateAt = $updateAt;
 
         return $this;
     }
@@ -131,17 +178,17 @@ class User implements UserInterface
     /**
      * @return DateTimeInterface
      */
-    public function getCreatedAt(): DateTimeInterface
+    public function getCreateAt(): DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->createAt;
     }
 
     /**
-     * @param  DateTimeInterface  $createdAt
+     * @param  DateTimeInterface  $createAt
      */
-    public function setCreateAt(DateTimeInterface $createdAt): self
+    public function setCreateAt(DateTimeInterface $createAt): self
     {
-        $this->createdAt = $createdAt;
+        $this->createAt = $createAt;
 
         return $this;
     }
